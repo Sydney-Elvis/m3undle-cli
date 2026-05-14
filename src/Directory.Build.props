@@ -1,0 +1,28 @@
+<Project>
+  <Import Project="CliVersion.props" />
+
+  <PropertyGroup>
+    <Company>Sydney Elvis LLC</Company>
+    <Product>M3Undle CLI</Product>
+    <Copyright>Copyright © $(Company) $([System.DateTime]::Now.Year)</Copyright>
+    <Authors>M3Undle Contributors</Authors>
+    <RepositoryUrl>https://github.com/Sydney-Elvis/m3undle-cli</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <BuildDateUtc Condition="'$(BuildDateUtc)' == ''">$([System.DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ssK'))</BuildDateUtc>
+    <BuildNumber Condition="'$(BuildNumber)' == '' and '$(M3UNDLE_BUILD_NUMBER)' != ''">$(M3UNDLE_BUILD_NUMBER)</BuildNumber>
+    <BuildNumber Condition="'$(BuildNumber)' == '' and '$(GITHUB_RUN_NUMBER)' != ''">$(GITHUB_RUN_NUMBER)</BuildNumber>
+    <BuildNumber Condition="'$(BuildNumber)' == '' and '$(BUILD_BUILDNUMBER)' != ''">$(BUILD_BUILDNUMBER)</BuildNumber>
+    <BuildNumber Condition="'$(BuildNumber)' == '' and '$(BUILD_NUMBER)' != ''">$(BUILD_NUMBER)</BuildNumber>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AssemblyMetadata Include="BuildDateUtc" Value="$(BuildDateUtc)" />
+    <AssemblyMetadata Include="BuildNumber" Value="$(BuildNumber)" Condition="'$(BuildNumber)' != ''" />
+  </ItemGroup>
+
+  <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Linux')) Or $([MSBuild]::IsOSPlatform('OSX'))">
+    <BaseIntermediateOutputPath>obj/</BaseIntermediateOutputPath>
+    <BaseOutputPath>bin/</BaseOutputPath>
+  </PropertyGroup>
+</Project>

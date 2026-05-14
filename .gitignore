@@ -1,0 +1,12 @@
+bin/
+obj/
+artifacts/
+TestResults/
+*.user
+*.suo
+.DS_Store
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
