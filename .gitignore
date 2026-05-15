@@ -4,6 +4,10 @@ artifacts/
 TestResults/
 *.user
 *.suo
+*.lscache
+*.ncrunch*
+.vs/
+.vscode/
 .DS_Store
 .env
 .env.*
