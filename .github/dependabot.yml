@@ -1,5 +1,12 @@
 version: 2
 
+registries:
+  github-nuget:
+    type: nuget-feed
+    url: https://nuget.pkg.github.com/Sydney-Elvis/index.json
+    username: Sydney-Elvis
+    password: ${{secrets.DEPENDABOT_GITHUB_PACKAGES_TOKEN}}
+
 updates:
   - package-ecosystem: "github-actions"
     directory: "/"
@@ -11,6 +18,8 @@ updates:
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 5
+    registries:
+      - github-nuget
     allow:
       - dependency-type: "direct"
     groups:
