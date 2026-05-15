@@ -3,5 +3,7 @@
     <Version>1.0.0-alpha.6</Version>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
+    <!-- Pinned Core package version. Override with -p:M3UnleCoreVersion=<version> for compatibility testing. -->
+    <M3UnleCoreVersion Condition="'$(M3UnleCoreVersion)' == ''">1.0.0-alpha.6-dev.1</M3UnleCoreVersion>
   </PropertyGroup>
 </Project>

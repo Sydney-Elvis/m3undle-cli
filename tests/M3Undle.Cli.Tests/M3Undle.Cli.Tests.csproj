@@ -6,9 +6,12 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+  <PropertyGroup>
+    <M3UnleCoreVersion Condition="'$(M3UnleCoreVersion)' == ''">1.0.0-alpha.6-dev.1</M3UnleCoreVersion>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="MSTest" Version="4.2.2" />
-    <PackageReference Include="M3Undle.Core" Version="1.0.0-alpha.6" />
+    <PackageReference Include="M3Undle.Core" Version="$(M3UnleCoreVersion)" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\M3Undle.Cli\M3Undle.Cli.csproj" />
